@@ -13,6 +13,8 @@ function addQueryParam(query: QueryParamsType, key: string) {
 
 function addArrayQueryParam(query: QueryParamsType, key: string) {
   const value = query?.[key];
+  if (!value) return "";
+
   return value.map((v: any) => encodeQueryParam(key, v)).join("&");
 }
 
